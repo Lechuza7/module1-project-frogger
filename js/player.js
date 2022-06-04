@@ -1,10 +1,10 @@
 class Player {
     constructor(ctx) {
         this.ctx = ctx;
-        this.x = 350;
+        this.x = 175;
         this.y = 340;
-        this.w = 35;
-        this.h = 35;
+        this.w = 25;
+        this.h = 25;
 
         this.img = new Image();
         this.img.src = 'assets/img/frog-beta.jpg';

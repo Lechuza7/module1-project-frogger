@@ -4,6 +4,8 @@ class Game {
 
         this.background = new Background(ctx);
         this.player = new Player(ctx);
+        this.track1 = new Track1(ctx);
+        this.car = new Car(ctx);
 
         this.interval = null;
 
@@ -30,10 +32,11 @@ class Game {
     draw() {
         this.background.draw();
         this.player.draw();
+        this.track1.draw();
     }
 
     move() {
-
+        this.car.move();
     }
 
     setListeners() {
