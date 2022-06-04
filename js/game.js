@@ -4,8 +4,17 @@ class Game {
 
         this.background = new Background(ctx);
         this.player = new Player(ctx);
-        this.track1 = new Track1(ctx);
-        this.car = new Car(ctx);
+        this.lane1 = [];
+        this.lane2 = [];
+        this.lane3 = [];
+        this.lane4 = [];
+        this.lane5 = [];
+    
+        this.tick1 = 0;
+        this.tick2 = 0;
+        this.tick3 = 0;
+        this.tick4 = 0;
+        this.tick5 = 0;
 
         this.interval = null;
 
@@ -17,6 +26,39 @@ class Game {
             this.clear();
             this.draw();
             this.move();
+            this.checkCollisions1();
+
+            this.tick1++;
+            this.tick2++;
+            this.tick3++;
+            this.tick4++;
+            this.tick5++;
+
+            if (this.tick1 > Math.random() * 240 + 200) {
+                this.tick1 = 0;
+                this.addVehicle1();
+            }
+
+            if (this.tick2 > Math.random() * 240 + 200) {
+                this.tick2 = 0;
+                this.addVehicle2();
+            }
+
+            if (this.tick3 > Math.random() * 240 + 200) {
+                this.tick3 = 0;
+                this.addVehicle3();
+            }
+
+            if (this.tick4 > Math.random() * 240 + 200) {
+                this.tick4 = 0;
+                this.addVehicle4();
+            }
+
+            if (this.tick5 > Math.random() * 240 + 200) {
+                this.tick5 = 0;
+                this.addVehicle5();
+            }
+
         }, 1000 / 60);
     }
     
@@ -27,21 +69,65 @@ class Game {
     
     clear() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+        this.lane1 = this.lane1.filter((vehicle) => vehicle.isVisible());
+        this.lane2 = this.lane2.filter((vehicle) => vehicle.isVisible());
+        this.lane3 = this.lane3.filter((vehicle) => vehicle.isVisible());
+        this.lane4 = this.lane4.filter((vehicle) => vehicle.isVisible());
+        this.lane5 = this.lane5.filter((vehicle) => vehicle.isVisible());
     }
 
     draw() {
         this.background.draw();
         this.player.draw();
-        this.track1.draw();
+        this.lane1.forEach(vehicle1 => vehicle1.draw());
+        this.lane2.forEach(vehicle2 => vehicle2.draw());
+        this.lane3.forEach(vehicle3 => vehicle3.draw());
+        this.lane4.forEach(vehicle4 => vehicle4.draw());
+        this.lane5.forEach(vehicle5 => vehicle5.draw());
     }
 
     move() {
-        this.car.move();
+        this.lane1.forEach(vehicle1 => vehicle1.move());
+        this.lane2.forEach(vehicle2 => vehicle2.move());
+        this.lane3.forEach(vehicle3 => vehicle3.move());
+        this.lane4.forEach(vehicle4 => vehicle4.move());
+        this.lane5.forEach(vehicle5 => vehicle5.move());
     }
 
     setListeners() {
         document.addEventListener('keydown', (e) => {
-            this.player.keyDown(e.keyCode)
+            this.player.keyDown(e.keyCode);
+        })
+    }
+
+    addVehicle1() {
+        const vehicle1 = new Lane1(this.ctx);
+        this.lane1.push(vehicle1);
+    }
+
+    addVehicle2() {
+        const vehicle2 = new Lane2(this.ctx);
+        this.lane2.push(vehicle2);
+    }
+    addVehicle3() {
+        const vehicle3 = new Lane3(this.ctx);
+        this.lane3.push(vehicle3);
+    }
+    addVehicle4() {
+        const vehicle4 = new Lane4(this.ctx);
+        this.lane4.push(vehicle4);
+    }
+
+    addVehicle5() {
+        const vehicle5 = new Lane5(this.ctx);
+        this.lane5.push(vehicle5);
+    }
+
+    checkCollisions1() {
+        this.lane1.forEach((vehicle) => {
+            if (vehicle.collides(this.player)) {
+                this.stop()
+            }
         })
     }
 };
