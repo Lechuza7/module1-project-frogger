@@ -1,13 +1,29 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-image: url(/assets/img/background2.jpg) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.screen{
+    width: 100%;
+    text-align: center;
 }
 
 canvas {
-    display: block;
     border: 1px solid black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
 }
 
 .btn-container {
     text-align: center;
+    color: yellow;
+    background-color: black; 
+    border: solid 0.5px yellow;
+    box-shadow: 3px 3px 10px grey;
+    border-radius: 5px;
 }

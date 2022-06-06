@@ -18,23 +18,43 @@ class Player {
             this.w,
             this.h,
         );
-    };
+    }
+
+    move() {
+        
+        if (this.x + this.w >= this.ctx.canvas.width) {
+            this.x = this.ctx.canvas.width - this.w
+        }
+
+        if (this.x <= 0) {
+            this.x = 0
+        }
+
+        if (this.y + this.h >= this.ctx.canvas.height) {
+            this.y = this.ctx.canvas.height - this.h
+        }
+
+        if (this.y <= 0) {
+            this.y = 0
+        }
+    }
 
     keyDown(key) {
-        console.log('keydown')
         if (key === UP) {
-            console.log('inside up')
-            this.y -= 20;
+            this.y -= 25;
+            this.img.src = 'assets/img/frog-beta.jpg';
         }
         if (key === DOWN) {
-            this.y += 20;
+            this.y += 25;
+            this.img.src = 'assets/img/frog-down-beta.png';
         }
         if (key === LEFT) {
-            console.log('inside up')
-            this.x -= 20;
+            this.x -= 25;
+            this.img.src = 'assets/img/frog-left-beta.png';
         }
         if (key === RIGHT) {
-            this.x += 20;
+            this.x += 25;
+            this.img.src = 'assets/img/frog-right-beta.png';
         }
 
     }

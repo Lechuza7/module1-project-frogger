@@ -3,18 +3,23 @@ class Game {
         this.ctx = ctx;
 
         this.background = new Background(ctx);
+    
         this.player = new Player(ctx);
+        
         this.lane1 = [];
         this.lane2 = [];
         this.lane3 = [];
         this.lane4 = [];
         this.lane5 = [];
+
+        this.river1 = [];
     
         this.tick1 = 0;
         this.tick2 = 0;
         this.tick3 = 0;
         this.tick4 = 0;
         this.tick5 = 0;
+        this.tick6 = 0;
 
         this.interval = null;
 
@@ -26,13 +31,16 @@ class Game {
             this.clear();
             this.draw();
             this.move();
+            this.checkPlatform();
             this.checkCollisions1();
+            
 
             this.tick1++;
             this.tick2++;
             this.tick3++;
             this.tick4++;
             this.tick5++;
+            this.tick6++;
 
             if (this.tick1 > Math.random() * 240 + 200) {
                 this.tick1 = 0;
@@ -59,6 +67,11 @@ class Game {
                 this.addVehicle5();
             }
 
+            if (this.tick6 > Math.random() * 240 + 200) {
+                this.tick6 = 0;
+                this.addTrunk();
+            }
+
         }, 1000 / 60);
     }
     
@@ -74,10 +87,12 @@ class Game {
         this.lane3 = this.lane3.filter((vehicle) => vehicle.isVisible());
         this.lane4 = this.lane4.filter((vehicle) => vehicle.isVisible());
         this.lane5 = this.lane5.filter((vehicle) => vehicle.isVisible());
+        this.river1 = this.river1.filter((trunk) => trunk.isVisible());
     }
 
     draw() {
         this.background.draw();
+        this.river1.forEach(trunk => trunk.draw());
         this.player.draw();
         this.lane1.forEach(vehicle1 => vehicle1.draw());
         this.lane2.forEach(vehicle2 => vehicle2.draw());
@@ -87,11 +102,14 @@ class Game {
     }
 
     move() {
+        this.player.move();
         this.lane1.forEach(vehicle1 => vehicle1.move());
         this.lane2.forEach(vehicle2 => vehicle2.move());
         this.lane3.forEach(vehicle3 => vehicle3.move());
         this.lane4.forEach(vehicle4 => vehicle4.move());
         this.lane5.forEach(vehicle5 => vehicle5.move());
+        this.river1.forEach(trunk => trunk.move());
+        
     }
 
     setListeners() {
@@ -123,10 +141,48 @@ class Game {
         this.lane5.push(vehicle5);
     }
 
+    addTrunk() {
+        const trunk = new River1(this.ctx);
+        this.river1.push(trunk);
+    }
+
     checkCollisions1() {
         this.lane1.forEach((vehicle) => {
             if (vehicle.collides(this.player)) {
                 this.stop()
+                }
+        })
+
+        this.lane2.forEach((vehicle) => {
+            if (vehicle.collides(this.player)) {
+                this.stop()
+                }
+        })
+
+        this.lane3.forEach((vehicle) => {
+            if (vehicle.collides(this.player)) {
+                this.stop()
+                }
+        })
+        
+        this.lane4.forEach((vehicle) => {
+            if (vehicle.collides(this.player)) {
+                this.stop()
+                }
+        })
+
+        this.lane5.forEach((vehicle) => {
+            if (vehicle.collides(this.player)) {
+                this.stop()
+                }
+        })
+    }
+
+    checkPlatform() {
+        
+        this.river1.forEach((trunk) => {
+            if (trunk.collides(this.player)) {
+                this.player.x += trunk.vx
             }
         })
     }

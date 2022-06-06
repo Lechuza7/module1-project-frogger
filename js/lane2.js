@@ -30,4 +30,14 @@ class Lane2 {
     isVisible() {
         return this.x < 350
     }
+
+    collides(player) {
+        const colX = this.x <= player.x + player.w &&
+                     this.x + this.w > player.x;
+        
+        const colY = this.y + this.h > player.y &&
+                     this.y < player.y + player.h;
+
+        return colX && colY;
+    }
 }
