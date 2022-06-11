@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 
 const game = new Game(ctx);
 
-const btn = document.getElementById('btn');
+const btn = document.getElementById('start');
 
 btn.addEventListener('click', function() {
     if (game.interval) {

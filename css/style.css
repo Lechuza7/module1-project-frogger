@@ -1,14 +1,27 @@
 html, body {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
-    background-image: url(/assets/img/background2.jpg) ;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: black;
 }
 
-.screen{
-    width: 100%;
-    text-align: center;
+.screen {
+    font-size: 10px;
+    height: 100%;
+    background-image: url(/assets/img/background2.jpg);
+    background-size: cover;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    padding-bottom: 5%;
+}
+
+#game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
 }
 
 canvas {
@@ -16,25 +29,52 @@ canvas {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    position: absolute;
-    top: 21%;
-    left: 21%;
+    margin-top: 30px;
+    /* position: absolute;
+    top: 10%;
+    left: 32%; */
 }
 
-/*.btn-container {
-    text-align: center;
-    color: yellow;
-    background-color: black; 
-    border: solid 0.5px yellow;
-    box-shadow: 3px 3px 10px grey;
-    border-radius: 5px;
-}*/
+#gameOver{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+  }
 
-#btn {
+#gameOverImg{
+    width: 350px;
+    height: 400px;
+    background-image: url(/assets/img/gameover.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: -400px;
+    border: 2px solid pink;
+  }
+
+#start {
     text-align: center;
     color: yellow;
     background-color: black; 
     border: solid 0.5px yellow;
     box-shadow: 3px 3px 10px grey;
     border-radius: 5px;
+    margin-top: 10px;
+    /* position: absolute;
+    top: 95%;
+    left: 47.5%; */
+}
+
+#restart {
+    text-align: center;
+    color: yellow;
+    background-color: black; 
+    border: solid 0.5px yellow;
+    box-shadow: 3px 3px 10px grey;
+    border-radius: 5px;
+    margin-top: 10px;
+    /* position: absolute;
+    top: 95%;
+    left: 47.5%; */
 }

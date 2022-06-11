@@ -1,14 +1,10 @@
-/*class River1 {
-    constructor(ctx) {
+class Vehicle {
+    constructor(ctx, x, y, vx) {
         this.ctx = ctx;
-        this.x = 375;
-        this.y = 75;
-        this.vx = -1;
-        this.w = 25;
-        this.h = 25;
 
-        this.img = new Image();
-        this.img.src = 'assets/img/red-car3.png';
+        this.x = x
+        this.y = y
+        this.vx = vx
     }
 
     draw() {
@@ -26,7 +22,12 @@
     }
 
     isVisible() {
-        return this.x + this.w > 0;
+        if (this.vx > 0) {
+            return this.x < 350
+        }
+        if (this.vx < 0) {
+            return this.x + this.w > 0
+        }
     }
 
     collides(player) {
@@ -38,4 +39,4 @@
 
         return colX && colY;
     }
-}*/
+}

@@ -5,26 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frogger</title>
+    <link rel = 'shortcut icon' href = 'assets/img/darth-vader.png'/>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     
-    <div class = 'screen'>
-        <canvas width="350" height="400"></canvas>
+    <div class="screen">
+        <div id = 'game'>
+            <canvas width="350" height="400"></canvas>
+            <div>
+            <button id="start">TRY</button>
+            </div>
+        </div>
 
-        <div class="btn-container">
-        <button id="btn">TRY</button>
+        <div id="gameOver">
+            <div id= "gameOverImg" width="350" height="400"></div>
+            <button id="restart" class="button">RESTART</button>
         </div>
     </div>
 
     <script src="js/keyboard.js"></script>
     <script src="js/background.js"></script>
+    <script src="js/vehicle.js"></script>
+    <script src="js/platform.js"></script> 
     <script src="js/xwing.js"></script> 
     <script src="js/falcon.js"></script> 
-    <script src="js/speeder.js"></script>    
+    <script src="js/speeder.js"></script> 
+    <script src="js/tie.js"></script> 
+    <script src="js/tie2.js"></script> 
+    <script src="js/tie3.js"></script>    
     <script src="js/lane.js"></script>   
-    <script src="js/river1.js"></script>
+    <script src="js/river.js"></script>
     <script src="js/player.js"></script>
     <script src="js/game.js"></script>
     <script src="js/index.js"></script>

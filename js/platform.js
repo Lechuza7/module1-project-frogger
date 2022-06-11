@@ -1,38 +1,10 @@
-class XWing extends Vehicle {
-
-    constructor (ctx, x, y, vx) {
-        super(ctx, x, y, vx)
-
-        this.w = 25;
-        this.h = 25;
-
-        this.img = new Image();
-        if (this.vx > 0) {
-            this.img.src = 'assets/img/xwing-right.png';
-        }
-        if (this.vx < 0) {
-            this.img.src = 'assets/img/xwing-left.png';
-        }
-    }
-    
-    
-    /*constructor(ctx, x, y, vx) {
+class Platform {
+    constructor(ctx, x, y, vx) {
         this.ctx = ctx;
 
         this.x = x
         this.y = y
         this.vx = vx
-
-        this.w = 25;
-        this.h = 25;
-
-        this.img = new Image();
-        if (this.vx > 0) {
-            this.img.src = 'assets/img/xwing-right.png';
-        }
-        if (this.vx < 0) {
-            this.img.src = 'assets/img/xwing-left.png';
-        }
     }
 
     draw() {
@@ -66,5 +38,5 @@ class XWing extends Vehicle {
                      this.y < player.y + player.h;
 
         return colX && colY;
-    }*/
+    }
 }
