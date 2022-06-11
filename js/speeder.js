@@ -1,14 +1,22 @@
-/*class River1 {
-    constructor(ctx) {
+class Speeder {
+    constructor(ctx, x, y, vx) {
         this.ctx = ctx;
-        this.x = 375;
-        this.y = 75;
-        this.vx = -1;
-        this.w = 25;
-        this.h = 25;
+
+        this.x = x
+        this.y = y
+        this.vx = vx
+
+        this.w = 20;
+        this.h = 20;
 
         this.img = new Image();
-        this.img.src = 'assets/img/red-car3.png';
+        this.img = new Image();
+        if (this.vx > 0) {
+            this.img.src = 'assets/img/speeder-right.png';
+        }
+        if (this.vx < 0) {
+            this.img.src = 'assets/img/speeder-left.png';
+        }
     }
 
     draw() {
@@ -26,7 +34,12 @@
     }
 
     isVisible() {
-        return this.x + this.w > 0;
+        if (this.vx > 0) {
+            return this.x < 350
+        }
+        if (this.vx < 0) {
+            return this.x + this.w > 0
+        }
     }
 
     collides(player) {
@@ -38,4 +51,4 @@
 
         return colX && colY;
     }
-}*/
+}

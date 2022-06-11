@@ -16,10 +16,21 @@ canvas {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-
+    position: absolute;
+    top: 21%;
+    left: 21%;
 }
 
-.btn-container {
+/*.btn-container {
+    text-align: center;
+    color: yellow;
+    background-color: black; 
+    border: solid 0.5px yellow;
+    box-shadow: 3px 3px 10px grey;
+    border-radius: 5px;
+}*/
+
+#btn {
     text-align: center;
     color: yellow;
     background-color: black; 

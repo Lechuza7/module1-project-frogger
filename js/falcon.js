@@ -1,16 +1,21 @@
-class Lane4 {
-    constructor(ctx) {
+class Falcon {
+    constructor(ctx, x, y, vx) {
         this.ctx = ctx;
-        this.x = -50;
-        this.y = 250;
 
-        this.vx = 2;
+        this.x = x
+        this.y = y
+        this.vx = vx
 
         this.w = 50;
         this.h = 25;
 
         this.img = new Image();
-        this.img.src = 'assets/img/truck.png';
+        if (this.vx > 0) {
+            this.img.src = 'assets/img/falcon-right.png';
+        }
+        if (this.vx < 0) {
+            this.img.src = 'assets/img/falcon-left.png';
+        }
     }
 
     draw() {
@@ -21,14 +26,19 @@ class Lane4 {
             this.w,
             this.h,
         );
-    };
+    }
 
     move() {
-        this.x += this.vx
+        this.x += this.vx;
     }
 
     isVisible() {
-        return this.x < 350
+        if (this.vx > 0) {
+            return this.x < 350
+        }
+        if (this.vx < 0) {
+            return this.x + this.w > 0
+        }
     }
 
     collides(player) {
