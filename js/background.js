@@ -8,7 +8,7 @@ class Background {
         this.h = this.ctx.canvas.height;
 
         this.img = new Image();
-        this.img.src = 'assets/img/bg1.png'
+        this.img.src = 'assets/img/game-bg.png'
     }
 
     draw() {

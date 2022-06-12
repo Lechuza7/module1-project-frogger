@@ -21,3 +21,9 @@ restart.addEventListener('click', function() {
         window.location.reload();    
 });
 
+const reload = document.getElementById('reload');
+
+reload.addEventListener('click', function() {
+        window.location.reload();    
+});
+

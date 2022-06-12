@@ -42,7 +42,7 @@ canvas {
 #gameOverImg{
     width: 350px;
     height: 400px;
-    background-image: url(/assets/img/gameover.jpg);
+    background-image: url(/assets/img/gameover.png);
     background-repeat: no-repeat;
     background-size: contain;
     margin-top: -430px;

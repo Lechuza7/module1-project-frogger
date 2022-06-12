@@ -34,6 +34,12 @@ class Game {
             han: false
         }
 
+        this.lifes = [
+            new Life(ctx, 80, 375),
+            new Life(ctx, 100, 375),
+        ]
+
+        this.lifeCounter =
         this.interval = null;
 
         this.setListeners();
@@ -74,6 +80,7 @@ class Game {
         this.background.draw();
         this.lanes.forEach(lane => lane.draw());
         this.rivers.forEach(river => river.draw())
+        this.lifes.forEach(life => life.draw())
         this.yoda.draw()
         this.luke.draw()
         this.leia.draw()
@@ -99,7 +106,12 @@ class Game {
         this.lanes.forEach((lane) => {
             lane.vehicles.forEach((vehicle) => {
                 if (vehicle.collides(this.player)) {
-                    this.gameOver()
+                    this.player.x = 175
+                    this.player.y = 350
+                    this.lifes.pop()
+                    if (this.lifes.length === 0) {
+                        this.gameOver()
+                    }
                 }
             })
         })
@@ -157,7 +169,6 @@ class Game {
             this.player.y = 350 
             this.capturedOnes.han = true     
         }
-        console.log(this.capturedOnes)
     }
 
     gameWin() {
@@ -175,6 +186,7 @@ class Game {
         this.stop()
         document.getElementById('game').style.visibility = 'hidden'
         document.getElementById('gameOver').style.visibility = 'visible'
+        
     }
 }
 
