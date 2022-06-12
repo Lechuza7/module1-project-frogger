@@ -11,7 +11,7 @@ start.addEventListener('click', function() {
         start.innerText = 'PLAY';
     } else {
         game.start();
-        start.innerText = 'STOP';
+        start.innerText = 'PAUSE';
     }
 });
 
@@ -26,4 +26,3 @@ const reload = document.getElementById('reload');
 reload.addEventListener('click', function() {
         window.location.reload();    
 });
-

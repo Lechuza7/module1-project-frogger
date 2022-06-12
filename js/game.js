@@ -39,13 +39,32 @@ class Game {
             new Life(ctx, 100, 375),
         ]
 
-        this.lifeCounter =
+        this.lukeCaptured = new Audio('assets/audio/luke-catched.wav')
+
+        this.vaderBreathing = new Audio('assets/audio/vader-breathing.mp3')
+        this.vaderBreathing.volume = 0.04
+
+        this.imperialMarch = new Audio('assets/audio/imperial-march-theme.mp3')
+        this.imperialMarch.volume = 0.1
+
+        this.vaderDefeated = new Audio('assets/audio/boss-dies.wav')
+        this.vaderDefeated.volume = 0.2
+
+        this.rebelCaptured = new Audio('assets/audio/rebel-captured.wav')
+        this.rebelCaptured.volume = 0.2
+
+        this.gameOverTheme = new Audio('assets/audio/force-suite-theme.mp3')
+        this.gameOverTheme.volume = 0.1
+
         this.interval = null;
 
         this.setListeners();
     }
 
     start() {
+        this.vaderBreathing.play()
+        this.imperialMarch.play()
+
         this.interval = setInterval(() => {
             this.clear();
             this.createVehicles()
@@ -61,6 +80,8 @@ class Game {
     }
 
     stop() {
+        this.vaderBreathing.pause()
+        this.imperialMarch.pause()
         clearInterval(this.interval);
         this.interval = null;
     }
@@ -140,6 +161,7 @@ class Game {
 
     captureRebel() {
         if (this.yoda.collides(this.player)) {
+            this.rebelCaptured.play()
             this.yoda.y = 50
             this.yoda.w = 20
             this.yoda.h = 20
@@ -150,13 +172,16 @@ class Game {
         }
 
         if (this.luke.collides(this.player)) {
+            this.rebelCaptured.play()
             this.luke.img.src = 'assets/img/trooper.png'
+            this.lukeCaptured.play()
             this.player.x = 175
             this.player.y = 350
             this.capturedOnes.luke = true   
         }
 
         if (this.leia.collides(this.player)) {
+            this.rebelCaptured.play()
             this.leia.img.src = 'assets/img/trooper.png' 
             this.player.x = 175
             this.player.y = 350
@@ -164,6 +189,7 @@ class Game {
         }
 
         if (this.han.collides(this.player)) {
+            this.rebelCaptured.play()
             this.han.img.src = 'assets/img/trooper.png'
             this.player.x = 175
             this.player.y = 350 
@@ -183,10 +209,12 @@ class Game {
     }
  
     gameOver() {
+        this.vaderDefeated.play()
         this.stop()
         document.getElementById('game').style.visibility = 'hidden'
         document.getElementById('gameOver').style.visibility = 'visible'
         
+        this.gameOverTheme.play()
     }
 }
 
