@@ -57,4 +57,15 @@ class Player {
         }
 
     }
+
+    /*collides(platform) {
+        const colX = this.x <= platform.x + platform.w &&
+                     this.x + this.w > platform.x;
+        
+        const colY = this.y + this.h > platform.y &&
+                     this.y < platform.y + platform.h;
+
+        return colX && colY;
+    }*/
+
 }

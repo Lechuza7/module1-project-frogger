@@ -3,14 +3,21 @@ const ctx = canvas.getContext('2d');
 
 const game = new Game(ctx);
 
-const btn = document.getElementById('start');
+const start = document.getElementById('start');
 
-btn.addEventListener('click', function() {
+start.addEventListener('click', function() {
     if (game.interval) {
         game.stop();
-        btn.innerText = 'TRY';
+        start.innerText = 'PLAY';
     } else {
         game.start();
-        btn.innerText = 'STOP';
+        start.innerText = 'STOP';
     }
 });
+
+const restart = document.getElementById('restart');
+
+restart.addEventListener('click', function() {
+        window.location.reload();    
+});
+
