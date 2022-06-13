@@ -42,13 +42,16 @@ class Game {
         ]
 
         this.gameTheme = new Audio('assets/audio/shake-your-booty.mp3')
-        this.gameTheme.volume = 0.1
+        this.gameTheme.volume = 0.08
 
-        this.vaderBreathing = new Audio('assets/audio/vader-breathing.mp3')
-        this.vaderBreathing.volume = 0.02
+        this.vaderBreathing = new Audio('assets/audio/vader-breathe.mp3')
+        this.vaderBreathing.volume = 0.03
 
         this.imperialMarch = new Audio('assets/audio/imperial-march-theme.mp3')
-        this.imperialMarch.volume = 0.1
+        this.imperialMarch.volume = 0.08
+
+        this.vehicleCrash = new Audio('assets/audio/crash3.mp3')
+        this.vehicleCrash.volume = 0.06
 
         this.splash = new Audio('assets/audio/splash.mp3')
         this.splash.volume = 0.2
@@ -60,7 +63,7 @@ class Game {
         this.rebelCaptured.volume = 0.2
 
         this.rebellionDefeated = new Audio('assets/audio/journey-ends-here.mp3')
-        this.rebellionDefeated.volume = 0.2
+        this.rebellionDefeated.volume = 0.1
 
         this.gameOverTheme = new Audio('assets/audio/force-suite-theme.mp3')
         this.gameOverTheme.volume = 0.1
@@ -139,11 +142,13 @@ class Game {
         this.lanes.forEach((lane) => {
             lane.vehicles.forEach((vehicle) => {
                 if (vehicle.collides(this.player)) {
+                    this.vehicleCrash.play()
                     this.loseLife()
                 }
             })
         })
         if (this.isSinking() && !this.isOnPlatform()) {
+            this.splash.play()
             this.loseLife()
         }
     }
