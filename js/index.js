@@ -18,11 +18,11 @@ start.addEventListener('click', function() {
 const restart = document.getElementById('restart');
 
 restart.addEventListener('click', function() {
-        window.location.reload();    
-});
+        window.location.reload();     
+}); 
 
 const reload = document.getElementById('reload');
 
 reload.addEventListener('click', function() {
-        window.location.reload();    
+        window.location.reload();   
 });

@@ -30,7 +30,7 @@ class Player {
         }
 
         if (this.y + this.h >= 375) {
-            this.y = 375 - this.h 
+            this.y = 375 - this.h
         }
 
         if (this.y <= 50) {
@@ -38,34 +38,29 @@ class Player {
         }
     }
 
-    keyDown(key) {
-        if (key === UP) {
-            this.y -= 25;
-            this.img.src = 'assets/img/vader-up.png';
-        }
-        if (key === DOWN) {
-            this.y += 25;
-            this.img.src = 'assets/img/vader-down.png';
-        }
-        if (key === LEFT) {
-            this.x -= 25;
-            this.img.src = 'assets/img/vader-left.png';
-        }
-        if (key === RIGHT) {
-            this.x += 25;
-            this.img.src = 'assets/img/vader-right.png';
-        }
+    keyUp(key) {
 
+        switch (key) {
+            case (UP):
+                this.y -= 25;
+                this.img.src = 'assets/img/vader-up.png';
+                break;
+
+            case (DOWN):
+                this.y += 25;
+                this.img.src = 'assets/img/vader-down.png';
+                break;
+
+            case (LEFT):
+                this.x -= 25;
+                this.img.src = 'assets/img/vader-left.png';
+                break;
+
+            case (RIGHT):
+                this.x += 25;
+                this.img.src = 'assets/img/vader-right.png';
+                break;
+
+        }
     }
-
-    /*collides(platform) {
-        const colX = this.x <= platform.x + platform.w &&
-                     this.x + this.w > platform.x;
-        
-        const colY = this.y + this.h > platform.y &&
-                     this.y < platform.y + platform.h;
-
-        return colX && colY;
-    }*/
-
 }

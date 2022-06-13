@@ -65,5 +65,5 @@ class River {
 
     clear() {
         this.platforms = this.platforms.filter((platform) => platform.isVisible());
-    }    
+    }   
 }
