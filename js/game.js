@@ -75,7 +75,7 @@ class Game {
 
     start() {
         if (!this.interval) {
-            setTimeout(() =>  this.isPlayerFreeze = false, 5000)
+            setTimeout(() => this.isPlayerFreeze = false, 2000)
             this.vaderBreathing.play()
             this.gameTheme.play()
 

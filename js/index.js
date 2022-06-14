@@ -5,7 +5,7 @@ const game = new Game(ctx);
 
 const start = document.getElementById('start');
 
-start.addEventListener('click', function() {
+start.addEventListener('click', function () {
     if (game.interval) {
         game.stop();
         start.innerText = 'PLAY';
@@ -17,12 +17,12 @@ start.addEventListener('click', function() {
 
 const restart = document.getElementById('restart');
 
-restart.addEventListener('click', function() {
-        window.location.reload();     
-}); 
+restart.addEventListener('click', function () {
+    window.location.reload();
+});
 
 const reload = document.getElementById('reload');
 
-reload.addEventListener('click', function() {
-        window.location.reload();   
+reload.addEventListener('click', function () {
+    window.location.reload();
 });

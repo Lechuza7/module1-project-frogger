@@ -1,6 +1,6 @@
 class Leia extends Rebel {
 
-    constructor (ctx) {
+    constructor(ctx) {
         super(ctx)
 
         this.x = 200
@@ -10,6 +10,6 @@ class Leia extends Rebel {
         this.h = 20;
 
         this.img = new Image();
-        this.img.src = 'assets/img/leia.png';   
+        this.img.src = 'assets/img/leia.png';
     }
 }

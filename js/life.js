@@ -10,7 +10,7 @@ class Life {
 
         this.img = new Image();
         this.img.src = 'assets/img/lifesaber2.jpg'
-        
+
     }
 
     draw() {

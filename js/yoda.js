@@ -1,6 +1,6 @@
 class Yoda extends Rebel {
 
-    constructor (ctx) {
+    constructor(ctx) {
         super(ctx)
 
         this.x = 50
@@ -10,6 +10,6 @@ class Yoda extends Rebel {
         this.h = 15;
 
         this.img = new Image();
-        this.img.src = 'assets/img/yoda.png';   
+        this.img.src = 'assets/img/yoda.png';
     }
 }

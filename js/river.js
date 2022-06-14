@@ -1,7 +1,7 @@
 class River {
     constructor(ctx, x, y, freqs, vx) {
         this.ctx = ctx;
-       
+
         this.x = x;
         this.y = y;
 
@@ -15,7 +15,7 @@ class River {
             tie: 0,
             tie2: 0,
             tie3: 0
-        }    
+        }
     }
 
     createPlatforms() {
@@ -37,20 +37,20 @@ class River {
             this.ticks.tie3 = 0;
             this.platforms.push(new Tie3(this.ctx, this.x, this.y, this.vx));
         }
-        
+
     }
 
     checkDistance() {
         return this.platforms.some((platform) => {
             if (platform.vx < 0 && platform.x > this.ctx.canvas.width - platform.w - 70) {
-                
+
                 return true
             }
             if (platform.vx > 0 && platform.x < platform.w + 70) {
-                
+
                 return true
             }
-            
+
             return false
         })
     }
@@ -59,11 +59,11 @@ class River {
         this.platforms.forEach(platform => platform.draw());
     }
 
-    move() {  
-        this.platforms.forEach(platform => platform.move());  
+    move() {
+        this.platforms.forEach(platform => platform.move());
     }
 
     clear() {
         this.platforms = this.platforms.filter((platform) => platform.isVisible());
-    }   
+    }
 }

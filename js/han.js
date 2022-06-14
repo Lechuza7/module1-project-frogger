@@ -1,6 +1,6 @@
 class Han extends Rebel {
 
-    constructor (ctx) {
+    constructor(ctx) {
         super(ctx)
 
         this.x = 275
@@ -10,6 +10,6 @@ class Han extends Rebel {
         this.h = 20;
 
         this.img = new Image();
-        this.img.src = 'assets/img/han.png';   
+        this.img.src = 'assets/img/han.png';
     }
 }

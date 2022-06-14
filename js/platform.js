@@ -32,10 +32,10 @@ class Platform {
 
     collides(player) {
         const colX = this.x <= player.x + player.w &&
-                     this.x + this.w > player.x;
-        
+            this.x + this.w > player.x;
+
         const colY = this.y + this.h > player.y &&
-                     this.y < player.y + player.h;
+            this.y < player.y + player.h;
 
         return colX && colY;
     }
