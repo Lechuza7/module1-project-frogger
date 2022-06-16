@@ -10,7 +10,7 @@ body {
 .screen {
     font-size: 10px;
     height: 100%;
-    background-image: url(/assets/img/wp4.png);
+    background-image: url(/module1-project-frogger/assets/img/wp4.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 5%;
@@ -26,7 +26,7 @@ body {
 
 canvas {
     border: 1px solid black;
-    background-image: url(/assets/img/start-menu.png);
+    background-image: url(/module1-project-frogger/assets/img/start-menu.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -44,7 +44,7 @@ canvas {
 #gameOverImg {
     width: 350px;
     height: 400px;
-    background-image: url(/assets/img/gameOver.png);
+    background-image: url(/module1-project-frogger/assets/img/gameOver.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -63,7 +63,7 @@ canvas {
 #gameWinImg {
     width: 350px;
     height: 400px;
-    background-image: url(/assets/img/gameWin.png);
+    background-image: url(/module1-project-frogger/assets/img/gameWin.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
