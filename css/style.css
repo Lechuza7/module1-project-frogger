@@ -44,7 +44,7 @@ canvas {
 #gameOverImg {
     width: 350px;
     height: 400px;
-    background-image: url(/module1-project-frogger/assets/img/gameover.png);
+    background-image: url(/module1-project-frogger/assets/img/gameOver.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
